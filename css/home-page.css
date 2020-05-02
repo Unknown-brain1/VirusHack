@@ -56,4 +56,53 @@
   border-radius: 12px;
 }
 
-.
+.virus-statistics{
+  margin-top: 14px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.virus-statistics-top {
+  background-image: url(/img/corona.svg);
+  width: 322.47px;
+  height: 166.08px;
+}
+
+.time {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: #CCCCCC;
+}
+
+.virus-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: #474747;
+}
+
+.place {
+  display: flex;
+  align-items: center;
+}
+
+.place-city {
+  width: 73.95px;
+  height: 36.37px;
+  background: #ECECEC;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+.text-place {
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 10px;
+line-height: 12px;
+}
