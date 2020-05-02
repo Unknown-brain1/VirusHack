@@ -16,3 +16,11 @@
   background: #E85D52;
   border-radius: 15px;
 }
+
+.sign-in {
+  font-size: 15px;
+  font-family:Roboto;
+  font-style: normal;
+  font-weight: normal;
+  color:#ffffff;
+}
