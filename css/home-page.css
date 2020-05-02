@@ -68,14 +68,9 @@
 }
 
 .virus-statistics-top {
-  /*background: url(VirusHuck\img\corona.svg);*/
   width: 322.47px;
   height: 166.08px;
 }
-
-/*.corona {
-  position: absolute;
-}*/
 
 .time {
   font-family: Roboto;
