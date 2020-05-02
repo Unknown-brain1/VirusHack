@@ -19,7 +19,7 @@
   color: #2F3646;
 }
 
-.push-mask-text {
+.common {
   display: flex;
   align-items: center;
 }
