@@ -1,0 +1,23 @@
+{
+  "background_color": "purple",
+  "theme_color": "#3367D6",
+  "lang": "Russian",
+  "screenshots":[],
+  "description": "Shows random fox pictures. Hey, at least it isn't cats.",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "img/cat2.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "img/cat1.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "name": "Awesome fox pictures",
+  "short_name": "Foxes",
+  "start_url": "https://food.triptip.tours/index.html"
+}
