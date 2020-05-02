@@ -1,0 +1,45 @@
+.wraper {
+  width: 375px;
+  margin: 0 auto;
+  background: #F9F9F9;
+}
+
+.push-mask{
+  width: 308px;
+  height: 145px;
+  background: #FFFFFF;
+  border-radius: 12px;
+}
+
+.notice {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  color: #2F3646;
+}
+
+.push-mask-text {
+  display: flex;
+  align-items: center;
+}
+.mask-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: #2F3646;
+}
+
+.button-on {
+  width: 101px;
+  height: 19px;
+  background: #F2F2F2;
+  border-radius: 12px;
+}
+.button-close {
+  width: 63px;
+  height: 19px;
+  background: #F2F2F2;
+  border-radius: 12px;
+}
