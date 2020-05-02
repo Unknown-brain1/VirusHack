@@ -2,7 +2,7 @@
 
 if('serviceWorker' in navigator) {
   navigator.serviceWorker
-           .register('https://food.triptip.tours/sw1.js')
+           .register('https://food.triptip.tours/sw.js')
            .then(function() { console.log('Service Worker Registered'); });
 }
 
