@@ -68,9 +68,13 @@
 }
 
 .virus-statistics-top {
-  background-image: url(img\corona.svg);
+  /*background-image: url(img\corona.svg);*/
   width: 322.47px;
   height: 166.08px;
+}
+
+.corona {
+  position: absolute;
 }
 
 .time {
