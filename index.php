@@ -1,7 +1,12 @@
 <?php
 
+class HW(){
+  $hell = "Hello World!";
+}
 
-echo "Hello World!";
+$x = HW.$hell;
+echo $x;
+
 
 
 ?>
