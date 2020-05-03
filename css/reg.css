@@ -1,0 +1,67 @@
+.wraper {
+  margin: 0 auto;
+  width: 348px;
+  height: 665px;
+  background-color: #ffffff;
+}
+
+
+
+.sign-in-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 132.2%;
+  color: #747474;
+}
+
+.sign-in {
+  margin: 0 auto;
+  margin-top: 17px;
+  width: 259px;
+  height: 50px;
+  background: #FFFFFF;
+  border: 2px solid #C9C9C9;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.pas {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 132.2%;
+  color: #C9C9C9;
+}
+.log {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 132.2%;
+  color: #C9C9C9;
+}
+.sign-in-block {
+  margin: 0 auto;
+  padding-left: 100px;
+}
+
+.button-sign {
+  margin: 0 auto;
+  text-align: center;
+  width: 252px;
+  height: 40px;
+  background: #E85D52;
+  border-radius: 15px;
+}
+
+.text-button-sign {
+  padding-top: 5px;
+  font-size: 23px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  color: #ffffff;
+}
