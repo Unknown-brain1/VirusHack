@@ -2,7 +2,7 @@
 
 //if('serviceWorker' in navigator) {
   //navigator.serviceWorker
-         //  .register('https://pwa.coxel.ru/VirusHack/front/sw.js', {scope: 'https://pwa.coxel.ru/VirusHack/front/'})
+         //  .register('https://pwa.coxel.ru/sw.js', {scope: 'https://pwa.coxel.ru/'})
            //.then(function() { console.log('Service Worker Registered'); }, function(error) {
     //console.log('Service worker registration failed:', error);
   //});
@@ -10,7 +10,7 @@
 
 if('serviceWorker' in navigator) {
     navigator.serviceWorker
-        .register('https://pwa.coxel.ru/VirusHack/front/sw.js')
+        .register('https://pwa.coxel.ru/sw.js')
         .then(function() { console.log('Service Worker Registered'); });
 }
 
