@@ -5,7 +5,13 @@
   background-color: #ffffff;
 }
 
+.home-menu-sign {
+  margin: 0 auto;
+  text-align: center;
+}
+
 .logo {
+  margin: 0 auto;
   margin-top: 70px;
   width: 238px;
   height: 93px;
