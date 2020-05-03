@@ -6,7 +6,11 @@
   background-color: #ffffff;
 }
 
+.home-menu-sign{
+  margin: 0 auto;
+  text-align: center;
 
+}
 
 .sign-in-text {
   font-family: Roboto;
@@ -43,10 +47,10 @@
   line-height: 132.2%;
   color: #C9C9C9;
 }
-.sign-in-block {
+/*.sign-in-block {
   margin: 0 auto;
   padding-left: 100px;
-}
+}*/
 
 .button-sign {
   margin-left: 46px;
