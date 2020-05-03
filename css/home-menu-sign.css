@@ -11,6 +11,11 @@
   height: 93px;
 }
 
+.block-auroriz {
+  margin: 0 auto;
+  text-align: center;
+}
+
 .register {
   margin-top: 95px;
   text-align: center;
