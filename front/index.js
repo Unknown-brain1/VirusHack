@@ -8,6 +8,19 @@ if('serviceWorker' in navigator) {
   });
 }
 
+var findMeButton = $('.find-me');
+findMeButton.on('click', function(e) {
+
+    e.preventDefault();
+
+    navigator.geolocation.getCurrentPosition(function(position) {
+
+        // Get the coordinates of the current possition.
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
+        console.log(position);
+    })
+
 // Code to handle install prompt on desktop
 
 let deferredPrompt;
