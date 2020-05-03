@@ -27,7 +27,7 @@ console.log("event is ",JSON.stringify(event));
         caches.keys().then(function(cacheNames) {
             return Promise.all(
                 cacheNames.map(function(cacheName) {
-                    if (expectedCacheNames.indexOf(cacheName) == -1) {
+                    if (expectedCacheNames.indexOf(cacheName) === -1) {
                         console.log('Deleting out of date cache:', cacheName);
                         return caches.delete(cacheName);
                     }
