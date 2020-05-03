@@ -5,7 +5,9 @@
   background-color: #ffffff;
 }
 
-
+.home-menu-sign {
+  margin-top: 100px;
+}
 
 .sign-in-text {
   font-family: Roboto;
@@ -14,6 +16,7 @@
   font-size: 28px;
   line-height: 132.2%;
   color: #747474;
+  padding-bottom: 25px;
 }
 
 .sign-in {
@@ -25,6 +28,7 @@
   border: 2px solid #C9C9C9;
   border-radius: 15px;
   text-align: center;
+
 }
 
 .pas {
