@@ -2,8 +2,10 @@
 
 if('serviceWorker' in navigator) {
   navigator.serviceWorker
-           .register('https://food.triptip.tours/VirusHack/front/sw.js')
-           .then(function() { console.log('Service Worker Registered'); });
+           .register('https://food.triptip.tours/VirusHack/front/sw.js', {scope: 'https://food.triptip.tours/VirusHack/front/'})
+           .then(function() { console.log('Service Worker Registered'); }, function(error) {
+    console.log('Service worker registration failed:', error);
+  });
 }
 
 // Code to handle install prompt on desktop
