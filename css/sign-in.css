@@ -43,3 +43,25 @@
   line-height: 132.2%;
   color: #C9C9C9;
 }
+.sign-in-block {
+  margin: 0 auto;
+
+}
+
+.button-sign {
+  margin: 0 auto;
+  text-align: center;
+  width: 165px;
+  height: 35px;
+  background: #E85D52;
+  border-radius: 15px;
+}
+
+.text-button-sign {
+  padding-top: 12px;
+  font-size: 23px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  color: #ffffff;
+}
