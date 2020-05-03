@@ -1,0 +1,40 @@
+.sign-in {
+    padding-top: 12px;
+    font-size: 23px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    color: #C9C9C9;
+}
+.wraper {
+  margin: 0 auto;
+  width: 348px;
+  height: 665px;
+  background-color: #ffffff;
+}
+
+.sign-in-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 132.2%;
+  color: #747474;
+}
+
+.pas {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 132.2%;
+  color: #C9C9C9;
+}
+.log {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 132.2%;
+  color: #C9C9C9;
+}

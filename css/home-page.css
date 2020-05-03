@@ -79,14 +79,15 @@
   font-size: 10px;
   line-height: 12px;
   color: #CCCCCC;
+  padding-top: 50px;
 }
 
 .virus-text {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 10px;
-  line-height: 12px;
+  font-size: 20px;
+  line-height: 25px;
   color: #474747;
 }
 
