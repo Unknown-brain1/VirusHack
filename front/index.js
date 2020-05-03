@@ -2,7 +2,7 @@
 
 if('serviceWorker' in navigator) {
   navigator.serviceWorker
-           .register('https://food.triptip.tours/VirusHack/front/sw.js', {scope: 'https://food.triptip.tours/VirusHack/front/'})
+           .register('https://pwa.coxel.ru/VirusHack/front/sw.js', {scope: 'https://pwa.coxel.ru/VirusHack/front/'})
            .then(function() { console.log('Service Worker Registered'); }, function(error) {
     console.log('Service worker registration failed:', error);
   });
