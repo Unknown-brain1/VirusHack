@@ -14,18 +14,18 @@ if('serviceWorker' in navigator) {
         .then(function() { console.log('Service Worker Registered'); });
 }
 
-var findMeButton = $('.find-me');
-findMeButton.on('click', function(e) {
+//var findMeButton = $('.find-me');
+//findMeButton.on('click', function(e) {
 
-    e.preventDefault();
+  //  e.preventDefault();
 
-    navigator.geolocation.getCurrentPosition(function(position) {
+    //navigator.geolocation.getCurrentPosition(function(position) {
 
-        // Get the coordinates of the current possition.
-        var lat = position.coords.latitude;
-        var lng = position.coords.longitude;
-        console.log(position);
-    })
+      //  // Get the coordinates of the current possition.
+       // var lat = position.coords.latitude;
+       // var lng = position.coords.longitude;
+        //console.log(position);
+    //})
 
 // Code to handle install prompt on desktop
 
