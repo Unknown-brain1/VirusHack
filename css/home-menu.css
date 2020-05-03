@@ -12,6 +12,8 @@
 }
 
 .sign {
+  margin: 0 auto;
+  margin-top: 93px;
   text-align: center;
   width: 252px;
   height: 53px;
@@ -27,4 +29,9 @@
   font-style: normal;
   font-weight: normal;
   color:#ffffff;
+}
+
+.home-menu {
+  margin: 0 auto;
+  text-align: center;
 }
