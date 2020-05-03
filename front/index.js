@@ -2,7 +2,7 @@
 
 if('serviceWorker' in navigator) {
   navigator.serviceWorker
-           .register('https://food.triptip.tours/sw.js')
+           .register('https://food.triptip.tours/VirusHack/front/sw.js')
            .then(function() { console.log('Service Worker Registered'); });
 }
 
