@@ -1,11 +1,19 @@
 .wraper {
   margin: 0 auto;
-  width: 348px;
+  width: 271px;
   height: 665px;
   background-color: #ffffff;
 }
 
+.home-menu-sign {
+  margin-top: 100px;
+  margin: 0 auto;
+}
 
+.sign-in-block {
+  text-align: center;
+  margin: 0 auto;
+}
 
 .sign-in-text {
   font-family: Roboto;

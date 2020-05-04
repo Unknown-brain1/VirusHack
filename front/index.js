@@ -58,7 +58,7 @@ function geolocationWork() {
 //function spawnNotification(body, icon, title) {
   //  var options = {
    //     body: 'Yay its works!',
-   //     icons: 'img/logo512.png',
+   //  icons: 'img/logo512.png',
    //    badge: 'img/logo192.png',
    // };
   //  var n = new Notification(title, options);
@@ -81,7 +81,7 @@ function notifyMe() {
         Notification.requestPermission(function (permission) {
             // Если пользователь разрешил, то создаем уведомление
             if (permission === "granted") {
-                var notification = new Notification("Hi there!");
+                var notification = new Notification("HEalth!");
             }
         });
     }
