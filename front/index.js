@@ -25,10 +25,15 @@ let geoOptions = {
 };
 
 function geoSuccess(pos) {
-    let crd = pos.coords;
-    if (homeLocation === null) geoWriteHome(pos.coords)
-
-    checkForDrive(crd) // Проверяем на сколько переместился юзер
+    let crd = {
+        latitude: pos.coords.latitude,
+        longitude: pos.coords.longitude,
+        accuracy: pos.coords.accuracy,
+    };
+    if (homeLocation === null) geoWriteHome(crd)
+    let lastLocation = JSON.parse(window.localStorage.getItem('location'));
+    if (lastLocation)
+        checkForDrive(crd, lastLocation) // Проверяем на сколько переместился юзер
 
     window.localStorage.setItem('location', JSON.stringify(crd))
 
@@ -38,10 +43,11 @@ function geoSuccess(pos) {
     console.log(`Плюс-минус ${crd.accuracy} метров.`);
 }
 
-function checkForDrive(currentLocation) {
-    let last_location = JSON.parse(window.localStorage.getItem('location'));
-    let distanceFromHome = geoDistance(currentLocation.latitude, currentLocation.longitude, last_location.latitude, last_location.longitude)
+function checkForDrive(currentLocation, lastLocation) {
+    let distanceFromHome = geoDistance(currentLocation.latitude, currentLocation.longitude, lastLocation.latitude, lastLocation.longitude)
     let lastHomeState = isHome();
+    console.log('Дистанция от дома')
+    console.log(distanceFromHome)
     if (distanceFromHome > 0.1) { // Если больше чем в 100 метрах от дома
         if (lastHomeState === null) {
             isHome(false);
@@ -56,7 +62,7 @@ function checkForDrive(currentLocation) {
         } else { // Если мы все еще на улице
             let timeExit = new Date(parseInt(window.localStorage.getItem('timeExit')));
             let timeAgo = Math.round((((new Date) - timeExit) / 1000 / 60)) // Время от выхода в минутах
-            if (timeAgo >= 120){ // Время менять маску
+            if (timeAgo >= 120) { // Время менять маску
                 new Notification("Поменяйте маску!", {
                     body: "Уже два часа как вы на улице. Время менять маску!",
                 })
@@ -95,7 +101,6 @@ function geoError(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
 }
 
-
 function geolocationWork() {
     navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
 }
@@ -119,6 +124,8 @@ function geoDistance(lat1, lon1, lat2, lon2) {
         return dist;
     }
 }
+
+setInterval(geolocationWork, 1000 * 30) // Запуск каждые 30 секунд
 
 //Notification.requestPermission().then(function(result) {
 //console.log(result);
@@ -178,29 +185,24 @@ function notifyMe() {
 
 let deferredPrompt;
 const addBtn = document.querySelector('.add-button');
-//addBtn.style.display = 'none';
-
-window.addEventListener('beforeinstallprompt', (e) => {
-    // Prevent Chrome 67 and earlier from automatically showing the prompt
-    e.preventDefault();
-    // Stash the event so it can be triggered later.
-    deferredPrompt = e;
-    // Update UI to notify the user they can add to home screen
-    addBtn.style.display = 'block';
-
-    addBtn.addEventListener('click', (e) => {
-        // hide our user interface that shows our A2HS button
-        addBtn.style.display = 'none';
-        // Show the prompt
-        deferredPrompt.prompt();
-        // Wait for the user to respond to the prompt
-        deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-                console.log('User accepted the A2HS prompt');
-            } else {
-                console.log('User dismissed the A2HS prompt');
-            }
-            deferredPrompt = null;
+if (addBtn)
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        addBtn.style.display = 'block';
+        addBtn.addEventListener('click', (e) => {
+            // hide our user interface that shows our A2HS button
+            addBtn.style.display = 'none';
+            // Show the prompt
+            deferredPrompt.prompt();
+            // Wait for the user to respond to the prompt
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the A2HS prompt');
+                } else {
+                    console.log('User dismissed the A2HS prompt');
+                }
+                deferredPrompt = null;
+            });
         });
     });
-});
