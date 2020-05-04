@@ -1,6 +1,6 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . 'back/main_loader.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . 'back/evgeny/loader.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/main_loader.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/evgeny/loader.php';
 
 // Main classes
 #require_once 'app/database.php';

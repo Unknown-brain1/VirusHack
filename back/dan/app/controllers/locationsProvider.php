@@ -11,6 +11,6 @@ class locationsProvider
     public function locations_get()
     {
         $Locations = new locations();
-        return $Locations->locations_get();
+        return $Locations->locations_provide();
     }
 }
