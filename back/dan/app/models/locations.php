@@ -8,5 +8,15 @@ use evgeny\database;
 
 class locations extends database
 {
-    client
+
+    /**
+     * @return array|mixed
+     */
+
+    public function locations_get()
+    {
+        $sql = "select name, location from locations";
+        $result = $this->select_sql($sql);
+        return $result;
+    }
 }
