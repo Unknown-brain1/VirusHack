@@ -36,6 +36,38 @@ function error(err) {
 navigator.geolocation.getCurrentPosition(success, error, options);
 
 
+const webpush = require ('web-push');
+
+const validKey = webpush.generateVapidKeys();
+
+webpush.setGCMAPIKey('<Your GCM API Key here>');
+webpush.setVapidDetails(
+    'milto:gelyaaa07@gmai.com',
+    vapidKeys.publicKey,
+    vapidKeys.privateKey,
+);
+const pushSubscription = {
+    endpoint: '....',
+    keys: {
+        auth: '...',
+        p256dh: '....',
+    }
+}
+webpush.sendNotification(pushSubscription, 'Push text');
+
+self.addEventListener('push', function (event) {
+    console.log('[Service Worker] Push Recieved.');
+    console.log(`[Service Worker] Push had this data:"${event.data.text()}"`);
+
+    const title = 'Push CodeLab';
+    const options = {
+        body: 'Yay its works!',
+        icons: 'img/logo512.png',
+        badge: 'img/logo192.png',
+    };
+    event.waitUntil(self.registration.showNotification(title, options));
+});
+
 //var findMeButton = $('.find-me');
 //findMeButton.on('click', function(e) {
 
