@@ -32,14 +32,16 @@ $methods = [
     'user_lookup' => (object)['class' => 'usersProvider', 'method' => 'user_lookup', 'params' => ['login']],
     'get_link_vk' => (object)['class' => 'loginProvider', 'method' => 'get_link_vk'],
     'get_link_fb' => (object)['class' => 'loginProvider', 'method' => 'get_link_fb'],
-    'client_key_store' => (object)['class' => 'keysController', 'method' => 'client_key_store', 'params' => ['client_key']]
+    'client_key_store' => (object)['class' => 'keysController', 'method' => 'client_key_store', 'params' => ['client_key']],
+    'locations_get' => (object)['class' => 'locationsProvider', 'method' => 'locations_get']
 ];
 // class => namespace
 $namespaces = [
     'storageProvider' => 'evgeny\controllers\\',
     'loginProvider' => 'evgeny\controllers\\',
     'usersProvider' => 'dan\controllers\\',
-    'keysController' => 'dan\controllers\\'
+    'keysController' => 'dan\controllers\\',
+    'locationsProvider' => 'dan\controllers\\'
 ];
 
 
