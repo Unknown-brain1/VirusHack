@@ -11,6 +11,7 @@
   background: #FFFFFF;
   border-radius: 12px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 20px;
 }
 
 .notice {
@@ -24,6 +25,7 @@
 .common {
   display: flex;
   align-items: center;
+  margin-left: 10px
 }
 .mask-text {
   font-family: Roboto;
@@ -32,6 +34,7 @@
   font-size: 12px;
   color: #2F3646;
 }
+
 
 .button-on {
   width: 101px;
@@ -54,6 +57,11 @@
   background: #FFFFFF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
+}
+
+.off-button {
+  width: 121px;
+  margin-left: -10px;
 }
 
 .virus-statistics{
@@ -138,6 +146,7 @@ line-height: 12px;
 }
 .ans {
   display: flex;
+  margin-left: -12px;
 }
 .button-css2 {
   background: #F2F2F2;
@@ -157,3 +166,4 @@ line-height: 12px;
   letter-spacing: 1px;
   transition: all 0.3s ease-out;
 }
+
