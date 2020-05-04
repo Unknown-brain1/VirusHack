@@ -111,3 +111,49 @@ font-weight: bold;
 font-size: 10px;
 line-height: 12px;
 }
+
+.on-button{
+  width: 101px;
+  height: 19px;
+  /*background: #DEF3D6;*/
+  border-radius: 12px;
+}
+.button-css {
+  background: #DEF3D6;
+  font-family: Roboto;
+  display: block;
+  /* box-sizing: border-box; */
+  margin: 0 auto;
+  /* padding: 8px; */
+  width: 80%;
+  max-width: 200px;
+  /* background: #fff; */
+  /* background: rgba(255, 255, 255, 0.5); */
+  border-radius: 8px;
+  color: #636363;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-out;
+}
+.ans {
+  display: flex;
+}
+.button-css2 {
+  background: #F2F2F2;
+  font-family: Roboto;
+  display: block;
+  /* box-sizing: border-box; */
+  margin: 0 auto;
+  /* padding: 8px; */
+  width: 80%;
+  max-width: 200px;
+  /* background: #fff; */
+  /* background: rgba(255, 255, 255, 0.5); */
+  border-radius: 8px;
+  color: #636363;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-out;
+}
