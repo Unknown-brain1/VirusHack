@@ -10,7 +10,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimum-scale=1.0, viewport-fit=cover" name="viewport">
+    <meta content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimum-scale=1.0, viewport-fit=cover"
+          name="viewport">
 
 
     <script src="index.js" defer></script>
@@ -25,15 +26,64 @@
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
-<div class="wrapper" style="margin-left: 25px">
-    <img src="img/tongue.svg" class="tongue">
-    <p class="text-head">Язвы в ротовой полости?</p>
-    <p class="text">Симптом, который может появлятся вместе с<br>
-        сопутсвующей инфекцией к COVID-19.</p>
-    <div class="anser">
-        <div class="yes"><p class="yes-ans">да</p></div>
-        <div class="no"><p class="no-ans">нет</p></div>
+<div class="wrapper test" style="margin-left: 25px">
+    <img src="" class="tongue">
+    <p class="text-head"></p>
+    <p class="text"></p>
+    <div class="answer">
+        <div class="yes"><p onclick="test_yes()" class="yes-ans">да</p></div>
+        <div class="no"><p onclick="test_no()" class="no-ans">нет</p></div>
     </div>
 </div>
+
+<script>
+    $test_img = $('.test img.tongue');
+    $test_head = $('.test .text-head');
+    $test_body = $('.test .text');
+
+    let currentIndex = 0;
+    let results = []
+    let tests = [
+        {
+            "img": "img/tongue.svg",
+            "header": 'Язвы в ротовой полости?',
+            'body': 'Симптом, который может появлятся вместе с<br> сопутсвующей инфекцией к COVID-19.'
+        },
+        {
+            "img": "img/FB.svg",
+            "header": '2',
+            'body': '2'
+        }
+    ]
+
+    $(function () {
+        $test_img.attr('src', tests[0].img)
+        $test_head.html(tests[0].header)
+        $test_body.html(tests[0].body)
+    })
+
+    function test_yes() {
+        results.push(true)
+        currentIndex++;
+        render_next();
+    }
+
+    function test_no() {
+        results.push(false)
+        currentIndex++;
+        render_next();
+    }
+
+    function render_next() {
+        if (currentIndex > tests.length - 1) {
+            window.location.href = '/';
+            return false;
+        }
+        $test_img.attr('src', tests[currentIndex].img)
+        $test_head.html(tests[currentIndex].header)
+        $test_body.html(tests[currentIndex].body)
+    }
+
+</script>
 </body>
 </html>

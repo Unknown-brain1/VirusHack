@@ -7,17 +7,21 @@
 //console.log('Service worker registration failed:', error);
 //});
 //}
+const applicationServerPublicKey = 'BNDcG4tU4OdBy0GpwzqJs-XBdFnS70NdNApD2MyrnbKldYifUPfGH2Xs45RvuLhfzzXXietd95F42SGdXYoNDOU';
 
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker
         .register('https://pwa.coxel.ru/sw.js')
-        .then(function () {
+        .then(function (swReg) {
+            swRegistration = swReg;
             console.log('Service Worker Registered');
+            pushStarter()
         });
 }
 
+let isSubscribed = false;
+let swRegistration = null;
 let homeLocation = JSON.parse(window.localStorage.getItem('homeLocation'));
-
 let geoOptions = {
     enableHighAccuracy: true,
     timeout: 5000,
@@ -101,6 +105,13 @@ function geoError(err) {
 }
 
 function geolocationWork() {
+    subscribeUser()
+    if (Notification.permission === "granted") {
+        new Notification("Проверка геолокации", {
+            body: "Регулярный пуш" + (new Date()).toDateString(),
+        })
+    }
+
     navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
 }
 
@@ -124,8 +135,56 @@ function geoDistance(lat1, lon1, lat2, lon2) {
     }
 }
 
+function pushStarter() {
+    swRegistration.pushManager.getSubscription()
+        .then(function (subscription) {
+            isSubscribed = !(subscription === null);
+
+            if (isSubscribed) {
+                console.log('User IS subscribed.');
+            } else {
+                console.log('User is NOT subscribed.');
+            }
+        });
+}
+
+function subscribeUser() {
+    if (!swRegistration) return false;
+    const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
+    swRegistration.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: applicationServerKey
+    })
+        .then(function (subscription) {
+            console.log('User is subscribed.');
+
+            updateSubscriptionOnServer(subscription);
+
+            isSubscribed = true;
+        })
+        .catch(function (error) {
+            console.error('Failed to subscribe the user: ', error);
+        });
+}
+
 geolocationWork();
-setInterval(geolocationWork, 1000 * 30) // Запуск каждые 30 секунд
+setInterval(geolocationWork, 1000 * 60) // Запуск каждые 60 секунд
+
+function urlB64ToUint8Array(base64String) {
+    const padding = '='.repeat((4 - base64String.length % 4) % 4);
+    const base64 = (base64String + padding)
+        .replace(/\-/g, '+')
+        .replace(/_/g, '/');
+
+    const rawData = window.atob(base64);
+    const outputArray = new Uint8Array(rawData.length);
+
+    for (let i = 0; i < rawData.length; ++i) {
+        outputArray[i] = rawData.charCodeAt(i);
+    }
+    return outputArray;
+}
+
 
 //Notification.requestPermission().then(function(result) {
 //console.log(result);
