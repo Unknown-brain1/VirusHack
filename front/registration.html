@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html data-n-head lang="ru" dir="ltr">
-  <head>
+<head>
 
     <meta charset="utf-8">
     <title>VirusHuck</title>
@@ -10,37 +10,89 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimum-scale=1.0, viewport-fit=cover" name="viewport">
+    <meta content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimum-scale=1.0, viewport-fit=cover"
+          name="viewport">
 
 
     <script src="index.js" defer></script>
-<script src="js/jquery-3.5.0.min.js"></script>
+    <script src="js/jquery-3.5.0.min.js"></script>
     <script src="js/jquery.cookie.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reg.css" charset="utf-8">
     <link rel="apple-touch-icon" href="/img/cat2.png">
     <link rel="apple-touch-icon" sizes="192x192" href="/img/cat2.png">
 
-	<meta content="/mstile-144x144.png" name="msapplication-TileImage">
+    <meta content="/mstile-144x144.png" name="msapplication-TileImage">
     <link rel="manifest" href="manifest.json">
-  </head>
-  <body>
-    <div class="wraper">
-      <div class="home-menu-sign">
-      <div class="sign-in-block"><p class="sign-in-text">Регистрация</p></div>
+</head>
+<body>
+<div class="wraper">
+    <div class="home-menu-sign">
+        <div class="sign-in-block"><p class="sign-in-text">Регистрация</p></div>
         <div class="sign-in">
-          <p class="log">Логин</p>
+            <p class="log">Логин</p>
+            <input type="text" class="login">
         </div>
         <div class="sign-in">
-          <p class="pas">Пароль</p>
+            <p class="pas">Пароль</p>
+            <input type="text" class="password">
         </div>
         <div class="sign-in">
-          <p class="pas">Повторите пароль</p>
+            <p class="pas">Повторите пароль</p>
+            <input type="text" class="password_repeat">
         </div>
         <div class="button-sign">
-          <a href="first-page.html">  <p class="text-button-sign">Зарегистрироваться</p></a>
+            <a onclick="registration()"><p class="text-button-sign">Зарегистрироваться</p></a>
         </div>
-      </div>
     </div>
-  </body>
+</div>
+<script>
+    function registration() {
+        let login = $('.login').val()
+        let password = $('.password').val()
+        let password_repeat = $('.password_repeat').val()
+
+        if (login.length < 1 || password.length < 1) {
+            alert('Введите логин и пароль')
+            return false;
+        }
+        if (password !== password_repeat) {
+            alert('Введенные пароли отличаются')
+            return false;
+        }
+
+        let settings = {
+            "url": "https://hack.triptip.tours/api.php",
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+                "Content-Type": "text/plain",
+            },
+            "data": JSON.stringify(
+                {
+                    "method": "registerBasic",
+                    "login": login,
+                    "password": password
+                }
+            ),
+        };
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            response = response.result;
+            if (response.user_token) { // Успешная авторизация
+                $.cookie('user_token', response.user_token) // Пишем в куки
+                window.location.href = '/second-page.html';
+            } else { // Неверный логин или пароль
+                alert('Такой пользователь уже существует')
+            }
+        }).fail(function (error) {
+            alert('Ошибка')
+            console.log(error)
+        });
+
+    }
+</script>
+
+</body>
 </html>

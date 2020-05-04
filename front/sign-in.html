@@ -70,8 +70,10 @@
 
         $.ajax(settings).done(function (response) {
             console.log(response);
+            response = response.result;
             if (response.user_token) { // Успешная авторизация
-
+                $.cookie('user_token', response.user_token) // Пишем в куки
+                window.location.href = '/second-page.html';
             } else { // Неверный логин или пароль
                 alert('Неверный логин или пароль')
             }
