@@ -167,3 +167,9 @@ line-height: 12px;
   transition: all 0.3s ease-out;
 }
 
+.logo {
+  margin-top: 60px;
+  width: 238px;
+  height: 93px;
+  margin: 0 auto;
+}
