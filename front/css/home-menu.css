@@ -1,6 +1,6 @@
 .wraper {
   margin: 0 auto;
-  width: 348px;
+  width: 271px;
   height: 665px;
   background-color: #ffffff;
 }
@@ -9,9 +9,11 @@
   margin-top: 157px;
   width: 238px;
   height: 93px;
+  margin: 0 auto;
 }
 
 .sign {
+  margin: 0 auto;
   text-align: center;
   width: 252px;
   height: 53px;
