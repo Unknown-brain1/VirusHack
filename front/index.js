@@ -25,10 +25,15 @@ let geoOptions = {
 };
 
 function geoSuccess(pos) {
-    let crd = pos.coords;
-    if (homeLocation === null) geoWriteHome(pos.coords)
-
-    checkForDrive(crd) // Проверяем на сколько переместился юзер
+    let crd = {
+        latitude: pos.coords.latitude,
+        longitude: pos.coords.longitude,
+        accuracy: pos.coords.accuracy,
+    };
+    if (homeLocation === null) geoWriteHome(crd)
+    let lastLocation = JSON.parse(window.localStorage.getItem('location'));
+    if (lastLocation)
+        checkForDrive(crd, lastLocation) // Проверяем на сколько переместился юзер
 
     window.localStorage.setItem('location', JSON.stringify(crd))
 
@@ -38,10 +43,11 @@ function geoSuccess(pos) {
     console.log(`Плюс-минус ${crd.accuracy} метров.`);
 }
 
-function checkForDrive(currentLocation) {
-    let last_location = JSON.parse(window.localStorage.getItem('location'));
-    let distanceFromHome = geoDistance(currentLocation.latitude, currentLocation.longitude, last_location.latitude, last_location.longitude)
+function checkForDrive(currentLocation, lastLocation) {
+    let distanceFromHome = geoDistance(currentLocation.latitude, currentLocation.longitude, lastLocation.latitude, lastLocation.longitude)
     let lastHomeState = isHome();
+    console.log('Дистанция от дома')
+    console.log(distanceFromHome)
     if (distanceFromHome > 0.1) { // Если больше чем в 100 метрах от дома
         if (lastHomeState === null) {
             isHome(false);
@@ -56,7 +62,7 @@ function checkForDrive(currentLocation) {
         } else { // Если мы все еще на улице
             let timeExit = new Date(parseInt(window.localStorage.getItem('timeExit')));
             let timeAgo = Math.round((((new Date) - timeExit) / 1000 / 60)) // Время от выхода в минутах
-            if (timeAgo >= 120){ // Время менять маску
+            if (timeAgo >= 120) { // Время менять маску
                 new Notification("Поменяйте маску!", {
                     body: "Уже два часа как вы на улице. Время менять маску!",
                 })
