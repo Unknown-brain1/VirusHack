@@ -168,7 +168,7 @@ function subscribeUser() {
 }
 
 geolocationWork();
-setInterval(geolocationWork, 1000 * 60) // Запуск каждые 60 секунд
+setInterval(geolocationWork, 1000 * 120) // Запуск каждые 120 секунд
 
 function urlB64ToUint8Array(base64String) {
     const padding = '='.repeat((4 - base64String.length % 4) % 4);
@@ -185,6 +185,9 @@ function urlB64ToUint8Array(base64String) {
     return outputArray;
 }
 
+function updateSubscriptionOnServer(subscription) {
+    console.log(JSON.stringify(subscription))
+}
 
 //Notification.requestPermission().then(function(result) {
 //console.log(result);
