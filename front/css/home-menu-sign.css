@@ -1,6 +1,6 @@
 .wraper {
   margin: 0 auto;
-  width: 348px;
+  width: 271px;
   height: 665px;
   background-color: #ffffff;
 }
@@ -9,6 +9,7 @@
   margin-top: 157px;
   width: 238px;
   height: 93px;
+  margin: 0 auto;
 }
 
 .register {
@@ -16,8 +17,9 @@
   text-align: center;
   background: #E85D52;
   border-radius: 15px;
-  width: 258.97px;
+  width: 259px;
   height: 53px;
+  margin: 0 auto;
 }
 
 .reg {
@@ -32,7 +34,7 @@
 .sign {
   margin-top: 17px;
   width: 259px;
-  height: 50px;
+  height: 53px;
   background: #FFFFFF;
   border: 2px solid #C9C9C9;
   border-radius: 15px;
@@ -40,7 +42,6 @@
 }
 
 .sign-in {
-  padding-top: 12px;
   font-size: 23px;
   font-family:Roboto;
   font-style: normal;
@@ -49,5 +50,6 @@
 }
 
 .gos {
+  margin: 0 auto;
   margin-top: 17px;
 }
