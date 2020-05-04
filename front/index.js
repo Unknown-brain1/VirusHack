@@ -14,26 +14,42 @@ if('serviceWorker' in navigator) {
         .then(function() { console.log('Service Worker Registered'); });
 }
 
-var options = {
+let homeLocation = JSON.parse(window.localStorage.getItem('homeLocation'));
+
+let geoOptions = {
     enableHighAccuracy: true,
     timeout: 5000,
     maximumAge: 0
 };
 
-function success(pos) {
-    var crd = pos.coords;
+function geoSuccess(pos) {
+    let crd = pos.coords;
+    let last_location = JSON.parse(window.localStorage.getItem('location'));
+    window.localStorage.setItem('location', JSON.stringify(crd))
+    if (homeLocation === null) geoWriteHome(pos.coords)
+
+    // todo сравнение текущей позиции с домашней
 
     console.log('Ваше текущее метоположение:');
     console.log(`Широта: ${crd.latitude}`);
     console.log(`Долгота: ${crd.longitude}`);
     console.log(`Плюс-минус ${crd.accuracy} метров.`);
-};
+}
 
-function error(err) {
+function geoWriteHome(coords) {
+    if (!confirm('Установить дом в текущем местоположении')) return;
+    window.localStorage.setItem('homeLocation', JSON.stringify(coords))
+    homeLocation = coords;
+}
+
+function geoError(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
-};
+}
 
-navigator.geolocation.getCurrentPosition(success, error, options);
+
+function geolocationWork() {
+    navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
+}
 
 //Notification.requestPermission().then(function(result) {
     //console.log(result);
