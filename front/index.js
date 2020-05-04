@@ -1,17 +1,19 @@
 // Register service worker to control making site work offline
 
 //if('serviceWorker' in navigator) {
-  //navigator.serviceWorker
-         //  .register('https://pwa.coxel.ru/sw.js', {scope: 'https://pwa.coxel.ru/'})
-           //.then(function() { console.log('Service Worker Registered'); }, function(error) {
-    //console.log('Service worker registration failed:', error);
-  //});
+//navigator.serviceWorker
+//  .register('https://pwa.coxel.ru/sw.js', {scope: 'https://pwa.coxel.ru/'})
+//.then(function() { console.log('Service Worker Registered'); }, function(error) {
+//console.log('Service worker registration failed:', error);
+//});
 //}
 
-if('serviceWorker' in navigator) {
+if ('serviceWorker' in navigator) {
     navigator.serviceWorker
         .register('https://pwa.coxel.ru/sw.js')
-        .then(function() { console.log('Service Worker Registered'); });
+        .then(function () {
+            console.log('Service Worker Registered');
+        });
 }
 
 let homeLocation = JSON.parse(window.localStorage.getItem('homeLocation'));
@@ -40,13 +42,18 @@ function checkForDrive(currentLocation) {
     let last_location = JSON.parse(window.localStorage.getItem('location'));
     let distanceFromHome = geoDistance(currentLocation.latitude, currentLocation.longitude, last_location.latitude, last_location.longitude)
     let lastHomeState = isHome();
-    if (distanceFromHome > 0.1){ // Если больше чем в 100 метрах от дома
-        if (lastHomeState === null){
+    if (distanceFromHome > 0.1) { // Если больше чем в 100 метрах от дома
+        if (lastHomeState === null) {
             isHome(false);
         }
 
     } else { // Если мы дома
         if (lastHomeState === null) isHome(true)
+        if (lastHomeState) { // Если мы уже были дома
+
+        } else { // Если мы только пришли
+
+        }
     }
 }
 
@@ -76,18 +83,17 @@ function geolocationWork() {
 function geoDistance(lat1, lon1, lat2, lon2) {
     if ((lat1 == lat2) && (lon1 == lon2)) {
         return 0;
-    }
-    else {
-        var radlat1 = Math.PI * lat1/180;
-        var radlat2 = Math.PI * lat2/180;
-        var theta = lon1-lon2;
-        var radtheta = Math.PI * theta/180;
+    } else {
+        var radlat1 = Math.PI * lat1 / 180;
+        var radlat2 = Math.PI * lat2 / 180;
+        var theta = lon1 - lon2;
+        var radtheta = Math.PI * theta / 180;
         var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
         if (dist > 1) {
             dist = 1;
         }
         dist = Math.acos(dist);
-        dist = dist * 180/Math.PI;
+        dist = dist * 180 / Math.PI;
         dist = dist * 60 * 1.1515;
         dist = dist * 1.609344; // В километры
         return dist;
@@ -95,16 +101,16 @@ function geoDistance(lat1, lon1, lat2, lon2) {
 }
 
 //Notification.requestPermission().then(function(result) {
-    //console.log(result);
+//console.log(result);
 //});
 
 //function spawnNotification(body, icon, title) {
-  //  var options = {
-   //     body: 'Yay its works!',
-   //  icons: 'img/logo512.png',
-   //    badge: 'img/logo192.png',
-   // };
-  //  var n = new Notification(title, options);
+//  var options = {
+//     body: 'Yay its works!',
+//  icons: 'img/logo512.png',
+//    badge: 'img/logo192.png',
+// };
+//  var n = new Notification(title, options);
 //}
 
 function notifyMe() {
@@ -138,43 +144,43 @@ function notifyMe() {
 //var findMeButton = $('.find-me');
 //findMeButton.on('click', function(e) {
 
-  //  e.preventDefault();
+//  e.preventDefault();
 
-    //navigator.geolocation.getCurrentPosition(function(position) {
+//navigator.geolocation.getCurrentPosition(function(position) {
 
-      //  // Get the coordinates of the current possition.
-       // var lat = position.coords.latitude;
-       // var lng = position.coords.longitude;
-        //console.log(position);
-    //})
+//  // Get the coordinates of the current possition.
+// var lat = position.coords.latitude;
+// var lng = position.coords.longitude;
+//console.log(position);
+//})
 
 // Code to handle install prompt on desktop
 
-    let deferredPrompt;
-    const addBtn = document.querySelector('.add-button');
-    //addBtn.style.display = 'none';
+let deferredPrompt;
+const addBtn = document.querySelector('.add-button');
+//addBtn.style.display = 'none';
 
-    window.addEventListener('beforeinstallprompt', (e) => {
-        // Prevent Chrome 67 and earlier from automatically showing the prompt
-        e.preventDefault();
-        // Stash the event so it can be triggered later.
-        deferredPrompt = e;
-        // Update UI to notify the user they can add to home screen
-        addBtn.style.display = 'block';
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
+    e.preventDefault();
+    // Stash the event so it can be triggered later.
+    deferredPrompt = e;
+    // Update UI to notify the user they can add to home screen
+    addBtn.style.display = 'block';
 
-        addBtn.addEventListener('click', (e) => {
-            // hide our user interface that shows our A2HS button
-            addBtn.style.display = 'none';
-            // Show the prompt
-            deferredPrompt.prompt();
-            // Wait for the user to respond to the prompt
-            deferredPrompt.userChoice.then((choiceResult) => {
-                if (choiceResult.outcome === 'accepted') {
-                    console.log('User accepted the A2HS prompt');
-                } else {
-                    console.log('User dismissed the A2HS prompt');
-                }
-                deferredPrompt = null;
-            });
+    addBtn.addEventListener('click', (e) => {
+        // hide our user interface that shows our A2HS button
+        addBtn.style.display = 'none';
+        // Show the prompt
+        deferredPrompt.prompt();
+        // Wait for the user to respond to the prompt
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('User accepted the A2HS prompt');
+            } else {
+                console.log('User dismissed the A2HS prompt');
+            }
+            deferredPrompt = null;
         });
     });
+});
