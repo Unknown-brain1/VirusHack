@@ -24,11 +24,11 @@ let geoOptions = {
 
 function geoSuccess(pos) {
     let crd = pos.coords;
-    let last_location = JSON.parse(window.localStorage.getItem('location'));
-    window.localStorage.setItem('location', JSON.stringify(crd))
     if (homeLocation === null) geoWriteHome(pos.coords)
 
-    // todo сравнение текущей позиции с домашней
+    checkForDrive(crd) // Проверяем на сколько переместился юзер
+
+    window.localStorage.setItem('location', JSON.stringify(crd))
 
     console.log('Ваше текущее метоположение:');
     console.log(`Широта: ${crd.latitude}`);
@@ -36,8 +36,30 @@ function geoSuccess(pos) {
     console.log(`Плюс-минус ${crd.accuracy} метров.`);
 }
 
+function checkForDrive(currentLocation) {
+    let last_location = JSON.parse(window.localStorage.getItem('location'));
+    let distanceFromHome = geoDistance(currentLocation.latitude, currentLocation.longitude, last_location.latitude, last_location.longitude)
+    let lastHomeState = isHome();
+    if (distanceFromHome > 0.1){ // Если больше чем в 100 метрах от дома
+        if (lastHomeState === null){
+            isHome(false);
+        }
+
+    } else { // Если мы дома
+        if (lastHomeState === null) isHome(true)
+    }
+}
+
+function isHome(newState = undefined) {
+    let lastState = JSON.parse(window.localStorage.getItem('isHome'))
+    if (newState !== undefined) {
+        window.localStorage.setItem('isHome', JSON.stringify(newState))
+    }
+    return lastState;
+}
+
 function geoWriteHome(coords) {
-    if (!confirm('Установить дом в текущем местоположении')) return;
+    if (!confirm('Установить дом в текущем местоположении?')) return;
     window.localStorage.setItem('homeLocation', JSON.stringify(coords))
     homeLocation = coords;
 }
@@ -49,6 +71,27 @@ function geoError(err) {
 
 function geolocationWork() {
     navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
+}
+
+function geoDistance(lat1, lon1, lat2, lon2) {
+    if ((lat1 == lat2) && (lon1 == lon2)) {
+        return 0;
+    }
+    else {
+        var radlat1 = Math.PI * lat1/180;
+        var radlat2 = Math.PI * lat2/180;
+        var theta = lon1-lon2;
+        var radtheta = Math.PI * theta/180;
+        var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+        if (dist > 1) {
+            dist = 1;
+        }
+        dist = Math.acos(dist);
+        dist = dist * 180/Math.PI;
+        dist = dist * 60 * 1.1515;
+        dist = dist * 1.609344; // В километры
+        return dist;
+    }
 }
 
 //Notification.requestPermission().then(function(result) {
