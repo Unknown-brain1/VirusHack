@@ -106,12 +106,6 @@ function geoError(err) {
 
 function geolocationWork() {
     subscribeUser()
-    if (Notification.permission === "granted") {
-        new Notification("Проверка геолокации", {
-            body: "Регулярный пуш" + (new Date()).toDateString(),
-        })
-    }
-
     navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
 }
 
