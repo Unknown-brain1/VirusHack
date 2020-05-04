@@ -37,10 +37,9 @@ function geoSuccess(pos) {
 
     window.localStorage.setItem('location', JSON.stringify(crd))
 
-    console.log('Ваше текущее метоположение:');
     console.log(`Широта: ${crd.latitude}`);
     console.log(`Долгота: ${crd.longitude}`);
-    console.log(`Плюс-минус ${crd.accuracy} метров.`);
+    console.log(' ')
 }
 
 function checkForDrive(currentLocation, lastLocation) {
@@ -125,6 +124,7 @@ function geoDistance(lat1, lon1, lat2, lon2) {
     }
 }
 
+geolocationWork();
 setInterval(geolocationWork, 1000 * 30) // Запуск каждые 30 секунд
 
 //Notification.requestPermission().then(function(result) {
