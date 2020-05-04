@@ -46,13 +46,33 @@ function checkForDrive(currentLocation) {
         if (lastHomeState === null) {
             isHome(false);
         }
+        if (lastHomeState) { // Если мы вышли
+            console.log('Вышли на улицу')
+            new Notification("Наденьте маску!", {
+                body: "Мы заметили что вы вышли на улицу, не забывайте о маске",
+            })
+            window.localStorage.setItem('timeExit', (new Date()).getTime().toString())
 
+        } else { // Если мы все еще на улице
+            let timeExit = new Date(parseInt(window.localStorage.getItem('timeExit')));
+            let timeAgo = Math.round((((new Date) - timeExit) / 1000 / 60)) // Время от выхода в минутах
+            if (timeAgo >= 120){ // Время менять маску
+                new Notification("Поменяйте маску!", {
+                    body: "Уже два часа как вы на улице. Время менять маску!",
+                })
+                window.localStorage.setItem('timeExit', (new Date()).getTime().toString())
+            }
+        }
     } else { // Если мы дома
         if (lastHomeState === null) isHome(true)
         if (lastHomeState) { // Если мы уже были дома
-
+            console.log('Дома хорошо')
         } else { // Если мы только пришли
-
+            console.log('Пришли домой')
+            isHome(true)
+            new Notification("Время мыть руки!", {
+                body: "Мы заметили что вы пришли домой, не забудьте помыть руки",
+            })
         }
     }
 }
