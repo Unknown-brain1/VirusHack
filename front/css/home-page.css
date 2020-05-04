@@ -179,3 +179,14 @@ line-height: 12px;
   height: 93px;
   margin: 0 auto;
 }
+
+.footer {
+  width: 335px;
+  height: 70.27px;
+  display: flex;
+  align-items: center;
+}
+
+.home {
+
+}
