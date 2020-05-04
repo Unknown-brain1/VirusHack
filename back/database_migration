@@ -1,0 +1,58 @@
+create table devices
+(
+    id         int auto_increment
+        primary key,
+    client_key varchar(255) null
+);
+
+create table storage
+(
+    token      varchar(255) not null
+        primary key,
+    crypt_data text         null
+);
+
+create table tests
+(
+    ID     int auto_increment
+        primary key,
+    Name   varchar(255)                 null,
+    Result longtext collate utf8mb4_bin null
+);
+
+create table tests_list
+(
+    id          int auto_increment
+        primary key,
+    Name        varchar(255) null,
+    description int          null
+);
+
+create table users
+(
+    id            int auto_increment
+        primary key,
+    login         varchar(255) null,
+    password_hash varchar(255) null,
+    token         varchar(255) null,
+    constraint users_login_uindex
+        unique (login),
+    constraint users_token_uindex
+        unique (token)
+);
+
+create table oauth
+(
+    id               int auto_increment
+        primary key,
+    user_id          int          null,
+    platform         varchar(255) null,
+    platform_user_id varchar(255) null,
+    constraint ouath_pk_2
+        unique (platform, platform_user_id),
+    constraint ouath_user_id_uindex
+        unique (user_id),
+    constraint ouath_users_id_fk
+        foreign key (user_id) references users (id)
+);
+

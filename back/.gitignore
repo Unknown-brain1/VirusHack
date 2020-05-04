@@ -1,0 +1,5 @@
+settings.env
+composer.lock
+vendor
+composer.phar
+tester.php

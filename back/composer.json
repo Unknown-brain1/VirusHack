@@ -1,0 +1,10 @@
+{
+  "require": {
+    "vlucas/phpdotenv": "^4.1",
+    "ext-mysqli": "*",
+    "ext-json": "*",
+    "ext-curl": "*",
+    "facebook/graph-sdk": "^5.7",
+    "vkcom/vk-php-sdk": "^5.101"
+  }
+}
