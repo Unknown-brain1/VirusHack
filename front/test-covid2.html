@@ -14,10 +14,10 @@
 
 
     <script src="index.js" defer></script>
-<script src="js/jquery-3.5.0.min.js"></script>
+    <script src="js/jquery-3.5.0.min.js"></script>
     <script src="js/jquery.cookie.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/test-codiv2.css" charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/test-covid2.css" charset="utf-8">
     <link rel="apple-touch-icon" href="/img/logo512.png">
     <link rel="apple-touch-icon" sizes="192x192" href="/img/logo192.png">
 
@@ -25,13 +25,53 @@
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
-<div class="wraper">
-    <img src="img/covid-19.svg" class="covid-19">
-    <p class="head"> COVID-19</p>
-    <p class="test-text">Тест</p>
-    <div class="start">
-        <a href="test-covid2.html"><p class="start-text">Пройти</p></a>
+<div class="wrapper">
+
+
+    <div class="head">
+        <p class="test-head">Введите<br>
+            правдивые данные</p>
     </div>
+
+    <div class="test">
+        <div class="strok1">
+        <div class="temp">
+            <p class="t">t• тела</p>
+            <p class="temp-ans1"><input style="Border: none; outline: none; text-align: center" placeholder="36,6 " type="text" class="temp-ans"></p>
+        </div>
+        <div class="whater">
+        <p class="Lit">Потребление воды (за сутки)</p>
+          <p class="whater-ans1"><input style="Border: none; outline: none; text-align: center" placeholder="1,576л" type="text" class="whater-ans"> </p>
+        </div>
+        </div>
+        <div class="strok2">
+            <div class="height">
+                <p class="sm">Рост</p>
+                <p class="heisht-ans1"><input style="Border: none; outline: none; text-align: center" placeholder="175см" type="text" class="heisht-ans"></p>
+            </div>
+            <div class="weight">
+                <p class="kg">Вес</p>
+                <p class="weight-ans1"><input style="Border: none; outline: none; text-align: center" placeholder="55кг" type="text" class="weight-ans"> </p>
+            </div>
+        </div>
+        <div class="strok3">
+            <div class="age">
+                <p class="ages">Возраст</p>
+                <p class="age-ans1"><input style="Border: none; outline: none; text-align: center" placeholder="18 лет" type="text" class="age-ans"></p>
+            </div>
+            <div class="kompl">
+                <p class="option">Комплекция тела</p>
+                <p class="option-ans1">
+                    <select style="Border: none; outline: none; text-align: center" class="option-ans" name="body">
+                        <option value="Ectomorth">Эктоморф</option>
+                        <option value="Mezomorth">Мезоморф</option>
+                        <option value="Endomorth">Эндоморф</option>
+                    </select>
+                    <!--<input style="Border: none; outline: none; text-align: center" placeholder="18 лет" type="text" class="option-ans"></p>-->
+            </div>
+        </div>
+    </div>
+    <a href="test-covid3.html"> <input class="button" type="submit" value="Пройти"></a>
 </div>
 </body>
 </html>

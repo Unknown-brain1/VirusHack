@@ -1,0 +1,81 @@
+body{
+    font-family: Roboto;
+}
+
+
+wrapper{
+    margin: 0 auto;
+}
+
+
+.age-ans{
+background: #F2F2F2;
+border-radius: 5px;
+width: 90.28px;
+height: 40px;
+}
+.heisht-ans {
+    background: #F2F2F2;
+    border-radius: 5px;
+    width: 90.28px;
+    height: 40px;
+}
+.option-ans {
+    background: #F2F2F2;
+    border-radius: 5px;
+    width: 227.32px;
+    height: 40px;
+}
+
+.temp-ans {
+    background: #F2F2F2;
+    border-radius: 5px;
+    width: 90.28px;
+    height: 40px;
+}
+
+.weight-ans {
+    background: #F2F2F2;
+    border-radius: 5px;
+    width: 90.28px;
+    height: 40px;
+}
+
+.whater-ans{
+    background: #F2F2F2;
+    border-radius: 5px;
+    width: 227.32px;
+    height: 40px;
+}
+
+.whater {
+margin-left: 10px;
+}
+.weight {
+    margin-left: 10px;
+}
+.kompl {
+    margin-left: 10px;
+}
+
+.strok1 {
+   margin: 0 auto;
+    display: flex;
+  }
+
+.strok2{
+    margin: 0 auto;
+    display: flex;
+  }
+
+.strok3 {
+    margin: 0 auto;
+    display: flex;
+  }
+.button {
+    margin: 0 auto;
+    width: 193px;
+    height: 53px;
+    background: #E85D52;
+    border-radius: 15px;
+}

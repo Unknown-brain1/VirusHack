@@ -1,0 +1,53 @@
+wrapper{
+
+}
+.tongue {
+    margin-top: 20px;
+}
+.text-head {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    color: #000000;
+}
+.text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    color: #323538;
+}
+.anser{
+    display: flex;
+    margin: 0 auto;
+}
+.yes{
+    text-align: center;
+    width: 135px;
+    height: 53px;
+    background: #E85D52;
+    border-radius: 15px;
+}
+.no {
+    text-align: center;
+    width: 135px;
+    height: 53px;
+    background: #E85D52;
+    border-radius: 15px;
+    margin-left: 33px ;
+}
+.yes-ans {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    color: #FFFFFF;
+}
+.no-ans{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    color: #FFFFFF;
+}
