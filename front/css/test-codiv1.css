@@ -6,9 +6,10 @@
 }
 
 .covid-19 {
-    margin: 0 auto;
+    margin-left: 63px;
 }
 .head {
+    text-align: center;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -16,6 +17,7 @@
     color: #000000;
 }
 .test-text{
+    text-align: center;
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
@@ -37,4 +39,5 @@
     font-size: 15px;
     line-height: 132.2%;
     color: #FFFFFF;
+    padding-top: 17px;
 }
