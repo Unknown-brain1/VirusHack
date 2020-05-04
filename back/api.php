@@ -32,7 +32,7 @@ $methods = [
     'user_lookup' => (object)['class' => 'usersProvider', 'method' => 'user_lookup', 'params' => ['login']],
     'get_link_vk' => (object)['class' => 'loginProvider', 'method' => 'get_link_vk'],
     'get_link_fb' => (object)['class' => 'loginProvider', 'method' => 'get_link_fb'],
-    'client_key_store' => (object)['class' => 'keysController', 'method' => 'client_key_store', 'params' => ['client_key']],
+    'client_key_store' => (object)['class' => 'keysController', 'method' => 'client_key_store', 'params' => ['client_endpoint']],
     'locations_get' => (object)['class' => 'locationsProvider', 'method' => 'locations_get']
 ];
 // class => namespace

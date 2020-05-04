@@ -12,7 +12,6 @@ class keysController
     public function client_key_store(stdClass $input)
     {
         $Keys_model = new keys_model();
-        $result = $Keys_model->client_key_store($input -> client_key);
-        return $result;
+        return $Keys_model->client_key_store($input->client_endpoint);
     }
 }
