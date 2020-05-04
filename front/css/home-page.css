@@ -49,6 +49,12 @@
   border-radius: 12px;
 }
 
+.maska {
+  width: 106px;
+  height: 116px;
+  margin-left: -17px;
+}
+
 .push-area{
   margin: 0 auto;
   margin-top: 19px;
