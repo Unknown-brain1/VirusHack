@@ -1,0 +1,40 @@
+.wraper {
+    width: 375px;
+    margin: 0 auto;
+    background: #F9F9F9;
+
+}
+
+.covid-19 {
+    margin: 0 auto;
+}
+.head {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    color: #000000;
+}
+.test-text{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    color: #000000;
+}
+.start{
+    margin: 0 auto;
+    width: 196px;
+    height: 53px;
+    background: #E85D52;
+    border-radius: 15px;
+    text-align: center;
+}
+.start-text{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 132.2%;
+    color: #FFFFFF;
+}
