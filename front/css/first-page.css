@@ -1,0 +1,25 @@
+.wraper {
+    margin: 0 auto;
+    width: 271px;
+    height: 665px;
+    background-color: #ffffff;
+}
+.logo {
+    margin-top: 60px;
+    width: 238px;
+    height: 93px;
+    margin: 0 auto;
+}
+.text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    color: #9C9C9C;
+}
+.page1 {
+    width: 302px;
+    height: 311px;
+    margin: 0 auto;
+}
