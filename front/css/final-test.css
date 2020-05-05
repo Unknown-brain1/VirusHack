@@ -40,3 +40,32 @@
     color: #FFFFFF;
     padding-top: 17px;
 }
+
+.footer {
+    width: 335px;
+    height: 70.27px;
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
+    border-radius: 24px;
+    margin: 0 auto;
+    margin-top: 120px;
+    margin-left: 20px;
+    position: absolute;
+    bottom: 0;
+}
+
+.home {
+    margin-left: 65px;
+    margin-right: 55px;
+}
+
+.grafic {
+    margin-right: 55px;
+}
+
+
+.list {
+    margin-right: 22px;
+}
