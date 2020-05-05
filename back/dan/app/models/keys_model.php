@@ -13,11 +13,18 @@ class keys_model extends database
      * @param $client_endpoint
      * @return bool
      */
-    public function client_key_store($client_endpoint){
+    public function client_key_store($client_endpoint)
+    {
         $this->prepare($client_endpoint);
         $sql = "insert into devices (client_endpoint) value('{$client_endpoint}')";
         $this->execute_sql($sql);
         return true;
+    }
+
+    public function get_all()
+    {
+        $sql = "select * from devices";
+        return $this->select_sql($sql);
     }
 
 }

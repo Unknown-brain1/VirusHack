@@ -52,7 +52,7 @@ self.addEventListener('push', function (event) {
         console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
         push_text = event.data.text();
     } else {
-        push_text = 'Привет! Я уведомление';
+        push_text = 'Привет! Помнишь о маске?';
     }
 
     console.log(push_text)
