@@ -41,12 +41,12 @@ if (isset($_REQUEST['code'])) { //
     }
 
     $oAuth2Client = $fb->getOAuth2Client();
-    $user_id = $oAuth2Client->debugToken($accessToken)->getUserId();
+    $platform_user_id = $oAuth2Client->debugToken($accessToken)->getUserId();
 
 
     $LoginProvider = new loginProvider();
     $Facebook = new \evgeny\models\facebook();
-    $user_id = $Facebook->get_user_id_by_platform_user_id($accessToken);
+    $user_id = $Facebook->get_user_id_by_platform_user_id($platform_user_id);
     if ($user_id) {
         $LoginProvider->auth_by_id($user_id);
         echo 'User ID есть, должны были авторизовать';
@@ -55,12 +55,12 @@ if (isset($_REQUEST['code'])) { //
         $User = new user();
 
         #stores new user into Users table
-        $token = $User->oauth_store($accessToken);
+        $token = $User->oauth_store($platform_user_id);
         #gets user_id of new user
         $user_id = $User->get_id_by_token($token);
 
         #stores new user into oauth
-        $Facebook->store($user_id, $accessToken);
+        $Facebook->store($user_id, $platform_user_id);
 
         #sets session for new User
         $LoginProvider->auth_by_id($user_id);
