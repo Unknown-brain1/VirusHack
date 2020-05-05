@@ -2,10 +2,11 @@
     width: 375px;
     margin: 0 auto;
     background: #F9F9F9;
-
+    height: 719px;
 }
 
 .covid-19 {
+    margin-top: 78px;
     margin-left: 63px;
 }
 .head {
@@ -51,7 +52,7 @@
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
     border-radius: 24px;
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 120px;
 }
 
 .home {
