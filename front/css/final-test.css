@@ -1,0 +1,42 @@
+.wrapper{
+    width: 375px;
+    margin: 0 auto;
+    background: #F9F9F9;
+    height: 719px;
+}
+
+.result{
+    width: 308px;
+    height: 189px;
+    margin: 0 auto;
+}
+.common{
+    margin: 0 auto;
+}
+.text-head {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 132.2%;
+    color: #000000;
+    padding-left: 34px;
+}
+
+.final{
+    margin: 0 auto;
+    width: 196px;
+    height: 53px;
+    background: #E85D52;
+    border-radius: 15px;
+    text-align: center;
+}
+.final-text{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 132.2%;
+    color: #FFFFFF;
+    padding-top: 17px;
+}
