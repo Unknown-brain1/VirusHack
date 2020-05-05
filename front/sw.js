@@ -45,11 +45,17 @@ self.addEventListener('fetch', function (e) {
 });
 
 self.addEventListener('push', function (event) {
+    let push_text
     console.log('[Service Worker] Push Received.');
-    console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
 
-    let push_text = event.data.text();
+    if (event.data) {
+        console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
+        push_text = event.data.text();
+    } else {
+        push_text = 'Привет! Я уведомление';
+    }
 
+    console.log(push_text)
     event.waitUntil(self.registration.showNotification(push_text));
 });
 
