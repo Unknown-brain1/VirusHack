@@ -16,30 +16,116 @@
     <script src="index.js" defer></script>
 <script src="js/jquery-3.5.0.min.js"></script>
     <script src="js/jquery.cookie.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/home-menu.css" charset="utf-8">
-    <link rel="apple-touch-icon" href="/img/logo512.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="/img/logo192.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/home-page.css" charset="utf-8">
+    <link rel="apple-touch-icon" href="/img/cat2.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/img/cat2.png">
 
 	<meta content="/mstile-144x144.png" name="msapplication-TileImage">
     <link rel="manifest" href="manifest.json">
   </head>
   <body>
-<!--    <button class="add-button">Скачать</button>
- <button onclick="notifyMe()">Notify me!</button>
- <div class="form-group">
-   <div class="col-xs-12 col-md-6 col-md-offset-3">
-     <button type="button" class="find-me btn btn-info btn-block">Геолокация твоя</button>
-   </div>
- </div>-->
- <div class="wrapper">
-   <div class="home-menu">
-     <img class="logo" src="img/logo.svg">
-     <img class="man" src="img/man1.svg">
-     <div class="sign">
-       <a href="authorization.html"> <p class="sign-in">Войти</p></a>
+    <div class="wrapper">
+     <div class="logotype"> <img class="logo" src="img/logo.svg">
+              <p class="text-head">Вы можете оценить обстановку в<br>
+                районе, не выходя из дома.</p>
      </div>
-   </div>
- </div>
-</body>
+
+      <div class="push-mask">
+        <div class="common">
+          <div class="text-push">
+          <p class="notice">Push уведомления</p>
+          <p class="mask-text">Мы напоминим надеть маску<br>
+            и перчатки при выходе из<br>
+            дома.</p>
+            <div class="ans">
+              <div class="on-button"><button onclick="notifyMe()" class="button-css">Включить</button></div>
+              <div class="off-button"><button onclick="notifyMe()" class="button-css2">Выключить</button></div>
+            </div>
+            </div>
+            <img class="maska" src="img/maska.svg">
+        </div>
+      </div>
+
+      <div class="push-mask">
+        <div class="common">
+          <div class="text-push">
+            <p class="notice">Push уведомления</p>
+            <p class="mask-text">Мы напоминим помыть руки<br>
+              и продизинфицировать<br>
+              технику придя домой.</p>
+            <div class="ans">
+              <div class="on-button"><button onclick="notifyMe()" class="button-css">Включить</button></div>
+              <div class="off-button"><button onclick="notifyMe()" class="button-css2">Выключить</button></div>
+            </div>
+          </div>
+          <img class="maska" src="img/flat.svg">
+        </div>
+      </div>
+
+      <div class="push-mask">
+        <div class="common">
+          <div class="text-push">
+            <p class="notice">Мой район</p>
+            <p class="mask-text">Количиство заболевших и<br>
+              очаги болезней поблизости.</p>
+            <div class="ans">
+              <div class="form-group">
+                <div class="col-xs-12 col-md-6 col-md-offset-3">
+                  <button type="button" class="find-me btn btn-info btn-block">Подробнее</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <img class="maska" src="img/map-marker.svg">
+        </div>
+      </div>
+
+      <div class="footer">
+        <img class="home" src="img/home.svg">
+        <img class="grafic" src="img/grafic.svg">
+        <img class="med" src="img/med.svg">
+        <a href="test-covid1.html"><img class="list" src="img/list.svg"></a>
+      </div>
+     <!-- <div class="push-area">
+        <div class="common">
+          <div class="text-push">
+            <p class="notice">Район проживания</p>
+            <p class="mask-text">Мы напоминим надеть маску<br>
+              и перчатки при выходе из<br>
+              дома.</p>
+            <div class="ans">
+              <button type="button" name="button-on" class="button-on">Настроить</button>
+              <button type="button" name="button-on" class="button-close">Закрыть</button>
+            </div>
+          </div>
+          <img class="maska" src="img/map-marker.svg">
+        </div>
+      </div>
+
+      <div class="virus-statistics">
+        <div style="background-image:url(img/corona.svg);" class="virus-statistics-top">
+          <p class="time">6 мая, 19:00 МСК</p>
+          <p class="virus-text">Коронавирус <br>
+          COVID-19"></p>
+        </div>
+        <div class="place">
+          <div class="place-city">
+            <p class="text-place">Россия</p>
+          </div>
+          <div class="place-city">
+            <p class="text-place">Город</p>
+          </div>
+          <div class="place-city">
+            <p class="text-place">Мир</p>
+          </div>
+        </div>
+      </div>
+
+
+-->
+
+    </div>
+  </body>
 </html>

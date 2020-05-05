@@ -17,30 +17,29 @@
 <script src="js/jquery-3.5.0.min.js"></script>
     <script src="js/jquery.cookie.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/home-menu-sign.css" charset="utf-8">
-    <link rel="apple-touch-icon" href="/img/cat2.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="/img/cat2.png">
+    <link rel="stylesheet" href="css/home-menu.css" charset="utf-8">
+    <link rel="apple-touch-icon" href="/img/logo512.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/img/logo192.png">
 
 	<meta content="/mstile-144x144.png" name="msapplication-TileImage">
     <link rel="manifest" href="manifest.json">
   </head>
   <body>
-    <div class="wrapper">
-      <div class="home-menu-sign">
-        <img class="logo" src="img/logo.svg">
-          <a href="registration.html"><div class="register">
-          <p class="reg">Регистрация</p>
-        </div></a>
-        <div class="sign">
-         <a href="sign-in.html"> <p class="sign-in">Войти</p></a>
-        </div>
-        <div class="gos">
-            <img class="vk" src="img/VK.svg">
-        </div>
-        <div class="gos">
-            <img class="fb" src="img/FB.svg">
-        </div>
-      </div>
-    </div>
-  </body>
+<!--    <button class="add-button">Скачать</button>
+ <button onclick="notifyMe()">Notify me!</button>
+ <div class="form-group">
+   <div class="col-xs-12 col-md-6 col-md-offset-3">
+     <button type="button" class="find-me btn btn-info btn-block">Геолокация твоя</button>
+   </div>
+ </div>-->
+ <div class="wrapper">
+   <div class="home-menu">
+     <img class="logo" src="img/logo.svg">
+     <img class="man" src="img/man1.svg">
+     <div class="sign">
+       <a href="authorization.html"> <p class="sign-in">Войти</p></a>
+     </div>
+   </div>
+ </div>
+</body>
 </html>
