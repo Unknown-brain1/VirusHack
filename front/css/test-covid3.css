@@ -1,8 +1,21 @@
 .wrapper{
-
+    width: 375px;
+    margin: 0 auto;
+    background: #F9F9F9;
+    height: 719px;
 }
-.tongue {
-    margin-top: 20px;
+
+.common {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.img {
+    padding-bottom: 67px;
+    width: 308px;
+    height: 235px;
+    margin: 0 auto;
+    padding-top: 42px
 }
 .text-head {
     font-family: Roboto;
@@ -19,8 +32,10 @@
     color: #323538;
 }
 .answer{
+    padding-left: 36px;
     display: flex;
     margin: 0 auto;
+    padding-top: 31px;
 }
 .yes{
     text-align: center;
@@ -50,4 +65,32 @@
     font-weight: bold;
     font-size: 15px;
     color: #FFFFFF;
+}
+.footer {
+    width: 335px;
+    height: 70.27px;
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
+    border-radius: 24px;
+    margin: 0 auto;
+    margin-top: 120px;
+    margin-left: 20px;
+    position: absolute;
+    bottom: 0;
+}
+
+.home {
+    margin-left: 65px;
+    margin-right: 55px;
+}
+
+.grafic {
+    margin-right: 55px;
+}
+
+
+.list {
+    margin-right: 22px;
 }
