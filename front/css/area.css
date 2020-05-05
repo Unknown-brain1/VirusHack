@@ -1,0 +1,43 @@
+.wrapper{
+    margin: 0 auto;
+}
+.svg {
+    margin: 0 auto;
+}
+.area{
+    width: 348px;
+    height: 526px;
+    background: #FFFFFF;
+    border-radius: 20px;
+}
+.text-area{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    color: #505050;
+}
+.number{
+    display: flex;
+}
+.num {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    color: #000000;
+}
+.strok2 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 8px;
+    color: #323538;
+}
+.strok3{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 6px;
+    color: #323538;
+}
