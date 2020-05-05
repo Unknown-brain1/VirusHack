@@ -12,19 +12,22 @@ if ('serviceWorker' in navigator) {
 
 let isSubscribed = false;
 let swRegistration = null;
+let map = null;
 let homeLocation = JSON.parse(window.localStorage.getItem('homeLocation'));
 let geoOptions = {
     enableHighAccuracy: true,
     timeout: 5000,
     maximumAge: 0
 };
-mapboxgl.accessToken = 'pk.eyJ1IjoiZXZnZW55LWdpc3QiLCJhIjoiY2s5dHMybDdvMG1yNTNscGNnMzl4MDE2cyJ9.6NFHqCdOdvwndPxHD3GoiQ';
-let map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [55.708622, 37.578495],
-    zoom: 12
-});
+if (typeof mapboxgl !== 'undefined') {
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZXZnZW55LWdpc3QiLCJhIjoiY2s5dHMybDdvMG1yNTNscGNnMzl4MDE2cyJ9.6NFHqCdOdvwndPxHD3GoiQ';
+    map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [55.708622, 37.578495],
+        zoom: 13
+    });
+}
 
 
 function geoSuccess(pos) {
@@ -33,7 +36,8 @@ function geoSuccess(pos) {
         longitude: pos.coords.longitude,
         accuracy: pos.coords.accuracy,
     };
-    map.setCenter({lng: crd.longitude, lat: crd.latitude})
+    if (map)
+        map.setCenter({lng: crd.longitude, lat: crd.latitude})
     if (homeLocation === null) geoWriteHome(crd)
     let lastLocation = JSON.parse(window.localStorage.getItem('location'));
     if (lastLocation)
