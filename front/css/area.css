@@ -1,5 +1,8 @@
 .wrapper{
     margin: 0 auto;
+    background: #F9F9F9;
+    width: 375px;
+    height: 1182px;
 }
 .svg {
     margin: 0 auto;
