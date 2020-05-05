@@ -162,7 +162,7 @@ function subscribeUser() {
 }
 
 geolocationWork();
-setInterval(geolocationWork, 1000 * 120) // Запуск каждые 120 секунд
+setInterval(geolocationWork, 1000 * 15) // Запуск каждые 120 секунд
 
 function urlB64ToUint8Array(base64String) {
     const padding = '='.repeat((4 - base64String.length % 4) % 4);
@@ -180,7 +180,24 @@ function urlB64ToUint8Array(base64String) {
 }
 
 function updateSubscriptionOnServer(subscription) {
-    console.log(JSON.stringify(subscription))
+    let json_to_call = (JSON.stringify(subscription))
+    let settings = {
+        "url": "https://hack.triptip.tours/api.php",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+            "Content-Type": "text/plain",
+        },
+        "data": JSON.stringify({
+            "method": "client_key_store",
+            "client_endpoint": json_to_call,
+        }),
+    };
+
+    console.log(json_to_call)
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+    });
 }
 
 //Notification.requestPermission().then(function(result) {
