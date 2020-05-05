@@ -1,7 +1,9 @@
 .wrapper {
     margin: 0 auto;
 }
-
+body{
+    background: #F9F9F9
+}
 .common{
 display: flex;
 margin: 0 auto;

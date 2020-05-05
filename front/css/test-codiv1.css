@@ -4,7 +4,9 @@
     background: #F9F9F9;
     height: 719px;
 }
-
+body{
+    background: #F9F9F9
+}
 .covid-19 {
     margin-top: 78px;
     margin-left: 63px;
