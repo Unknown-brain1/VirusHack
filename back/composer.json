@@ -5,6 +5,7 @@
     "ext-json": "*",
     "ext-curl": "*",
     "facebook/graph-sdk": "^5.7",
-    "vkcom/vk-php-sdk": "^5.101"
+    "vkcom/vk-php-sdk": "^5.101",
+    "minishlink/web-push": "^5.2"
   }
 }

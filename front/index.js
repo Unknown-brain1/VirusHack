@@ -1,12 +1,3 @@
-// Register service worker to control making site work offline
-
-//if('serviceWorker' in navigator) {
-//navigator.serviceWorker
-//  .register('https://pwa.coxel.ru/sw.js', {scope: 'https://pwa.coxel.ru/'})
-//.then(function() { console.log('Service Worker Registered'); }, function(error) {
-//console.log('Service worker registration failed:', error);
-//});
-//}
 const applicationServerPublicKey = 'BNDcG4tU4OdBy0GpwzqJs-XBdFnS70NdNApD2MyrnbKldYifUPfGH2Xs45RvuLhfzzXXietd95F42SGdXYoNDOU';
 
 if ('serviceWorker' in navigator) {
@@ -27,6 +18,14 @@ let geoOptions = {
     timeout: 5000,
     maximumAge: 0
 };
+mapboxgl.accessToken = 'pk.eyJ1IjoiZXZnZW55LWdpc3QiLCJhIjoiY2s5dHMybDdvMG1yNTNscGNnMzl4MDE2cyJ9.6NFHqCdOdvwndPxHD3GoiQ';
+let map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [55.708622, 37.578495],
+    zoom: 12
+});
+
 
 function geoSuccess(pos) {
     let crd = {
@@ -34,6 +33,7 @@ function geoSuccess(pos) {
         longitude: pos.coords.longitude,
         accuracy: pos.coords.accuracy,
     };
+    map.setCenter({lng: crd.longitude, lat: crd.latitude})
     if (homeLocation === null) geoWriteHome(crd)
     let lastLocation = JSON.parse(window.localStorage.getItem('location'));
     if (lastLocation)
@@ -41,8 +41,8 @@ function geoSuccess(pos) {
 
     window.localStorage.setItem('location', JSON.stringify(crd))
 
-    console.log(`Широта: ${crd.latitude}`);
-    console.log(`Долгота: ${crd.longitude}`);
+    console.log('Широта: ' + crd.latitude);
+    console.log('Долгота: ' + crd.longitude);
     console.log(' ')
 }
 
@@ -200,19 +200,6 @@ function updateSubscriptionOnServer(subscription) {
     });
 }
 
-//Notification.requestPermission().then(function(result) {
-//console.log(result);
-//});
-
-//function spawnNotification(body, icon, title) {
-//  var options = {
-//     body: 'Yay its works!',
-//  icons: 'img/logo512.png',
-//    badge: 'img/logo192.png',
-// };
-//  var n = new Notification(title, options);
-//}
-
 function notifyMe() {
     // Проверка поддержки браузером уведомлений
     if (!("Notification" in window)) {
@@ -241,21 +228,6 @@ function notifyMe() {
 }
 
 
-//var findMeButton = $('.find-me');
-//findMeButton.on('click', function(e) {
-
-//  e.preventDefault();
-
-//navigator.geolocation.getCurrentPosition(function(position) {
-
-//  // Get the coordinates of the current possition.
-// var lat = position.coords.latitude;
-// var lng = position.coords.longitude;
-//console.log(position);
-//})
-
-// Code to handle install prompt on desktop
-
 let deferredPrompt;
 const addBtn = document.querySelector('.add-button');
 if (addBtn)
@@ -279,3 +251,5 @@ if (addBtn)
             });
         });
     });
+
+
