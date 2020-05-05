@@ -205,9 +205,14 @@ line-height: 12px;
   box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
   border-radius: 24px;
   margin: 0 auto;
-  margin-top: 10px;
+  margin-left: 20px;
+  position: absolute;
+  bottom: 0;
 }
+.tabs{
+  margin: 0 auto;
 
+}
 .home {
   margin-left: 22px;
   margin-right: 55px;
