@@ -37,3 +37,98 @@ margin: 0 auto;
 .text-div {
     margin-left: 47px;
 }
+.text-by-corona {
+    margin: 0 auto;
+    text-align: center;
+}
+.statistic {
+    margin: 0 auto;
+    width: 332px;
+    height: 446.83px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.date {
+    padding-top: 80px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 14px;
+    color: #CCCCCC
+}
+.corona-text{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 33px;
+    color: #474747
+}
+.place-city {
+    display: flex;
+}
+
+.place {
+    margin-left: 18px;
+    width: 59.71px;
+    height: 29.86px;
+    background: #ECECEC;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+.city {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 14px;
+    color: #000000;
+    text-align: center;
+}
+.plus{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 12px;
+    color: #E5E5E5;
+}
+.com-num{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 6px;
+    color: #3D3D3D;
+}
+.strok1{
+    display: flex;
+}
+.vl{
+/*padding-left: 67px;
+padding-right: 67px;*/
+border: 1px solid #B3B3B3;
+height: 68.65px;
+    margin: 0 auto;
+}
+.number {
+margin: 0 auto;
+margin-top: 20px;
+}
+.text-recov{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 12px;
+    color: #3D3D3D;
+}
+.recov {
+    margin-left: 25px;
+}
+.ill {
+    margin-right: 25px;
+}
+.die{
+    margin-left: 25px;
+}
